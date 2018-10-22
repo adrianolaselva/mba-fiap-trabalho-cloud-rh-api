@@ -1,0 +1,20 @@
+sudo: false
+language: java
+
+jdk:
+- oraclejdk8
+
+services:
+- mongodb
+
+before_script:
+- mongo rh --eval 'db.createUser({user:"root",pwd:"root",roles:["readWrite"]});'
+
+script:
+- mv src/main/resources/application.properties.dist src/main/resources/application.properties
+- mvn clean package
+- mvn build
+
+#notifications:
+#  slack:
+#    secure: dygx7a6CJf458EWT8LpehLyIyafsPXAn+77ELPykbIVQzoN/vYZHWWzuYu7agoG44xrLEasLENPcK+6VClERFhaKl9TPfNGS846KtenTe4XURMr1Yv+SiQqrZ9ccr3tEaWzVtLKlOU5hzCZozevwJJLap3Xpc9hXNgo+QVrr53k=
