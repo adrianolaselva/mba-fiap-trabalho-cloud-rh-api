@@ -1,0 +1,21 @@
+filter:
+  paths:
+  - src/main/java/
+build:
+  nodes:
+    analysis:
+      environment:
+        docker:
+          remote_engine: true
+      tests:
+        override:
+        - java-scrutinizer-run
+        -
+          command: java-sonar-run
+          use_website_config: true
+          coverage:
+            file: './coverage'
+            format: 'jacoco'
+checks:
+  java:
+    code_rating: true
