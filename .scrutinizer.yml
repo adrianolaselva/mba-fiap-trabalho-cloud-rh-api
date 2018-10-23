@@ -13,9 +13,6 @@ build:
         -
           command: java-sonar-run
           use_website_config: true
-          coverage:
-            file: './coverage'
-            format: 'jacoco'
 checks:
   java:
     code_rating: true
