@@ -62,13 +62,13 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 .withExpiresAt(new Date(System.currentTimeMillis() + SecurityConstants.EXPIRATION_TIME))
                 .sign(Algorithm.HMAC512(SecurityConstants.SECRET.getBytes()));
 
-//        res.addHeader(SecurityConstants.HEADER_STRING, SecurityConstants.TOKEN_PREFIX + token);
+        res.addHeader(SecurityConstants.HEADER_STRING, SecurityConstants.TOKEN_PREFIX + token);
 
-        JSONObject json = new JSONObject();
-        json.put("token", SecurityConstants.TOKEN_PREFIX + token);
-
-        res.addHeader("Content-Type", "application/json;charset=UTF-8");
-        res.getWriter().write(json.toString());
+//        JSONObject json = new JSONObject();
+////        json.put("token", SecurityConstants.TOKEN_PREFIX + token);
+//
+//        res.addHeader("Content-Type", "application/json;charset=UTF-8");
+//        res.getWriter().write(json.toString());
     }
 
 }

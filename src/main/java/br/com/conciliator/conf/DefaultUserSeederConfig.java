@@ -36,6 +36,12 @@ public class DefaultUserSeederConfig {
 
     public void seedUsersTable() {
         Optional<User> user = repository.findByUsername(defaultUsername);
+
+        if(!user.isPresent()){
+            repository.save(new User(defaultUsername, bCryptPasswordEncoder().encode(defaultPassword)));
+            return;
+        }
+
         user.get().setPassword(bCryptPasswordEncoder().encode(defaultPassword));
         repository.save(user.get());
     }

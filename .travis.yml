@@ -13,7 +13,7 @@ before_script:
 script:
 - mv src/main/resources/application.properties.dist src/main/resources/application.properties
 - mvn clean package
-- mvn build
+- mvn test
 
 #notifications:
 #  slack:

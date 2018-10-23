@@ -2,4 +2,4 @@
 spring.profiles.active=dev
 app.default.username=root
 app.default.password=root
-spring.data.mongodb.uri=mongodb://root:root@127.0.0.1:27017/rh
+spring.data.mongodb.uri=mongodb://127.0.0.1:27017/rh
