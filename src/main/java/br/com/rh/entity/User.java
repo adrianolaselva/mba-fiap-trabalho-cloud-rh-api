@@ -1,6 +1,7 @@
 package br.com.rh.entity;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
@@ -13,6 +14,7 @@ public class User implements Serializable {
     @Id
     public String id;
 
+    @Indexed
     private String username;
     private String password;
 

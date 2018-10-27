@@ -1,8 +1,12 @@
 package br.com.rh.entity;
 
 import br.com.rh.enums.Genre;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -27,6 +31,8 @@ public class Customer implements Serializable {
     @NotNull(message = "lastName não pode ser vazio")
     public String lastName;
     public Genre genre;
+
+    @JsonFormat(pattern="yyyy-MM-dd", shape=JsonFormat.Shape.STRING)
     public Calendar dateOfbirth;
     public String email;
     public List<Contact> contacts;
@@ -35,6 +41,17 @@ public class Customer implements Serializable {
     public String objective;
     public BigDecimal salaryPretension;
     public List<Graduation> graduations;
+
+//    @DBRef
+//    private User user;
+
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss", shape=JsonFormat.Shape.STRING)
+    @CreatedDate
+    private Calendar createdAt;
+
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss", shape=JsonFormat.Shape.STRING)
+    @LastModifiedDate
+    private Calendar updatedAt;
 
     public Customer() {
 

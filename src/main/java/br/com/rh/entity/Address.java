@@ -8,8 +8,6 @@ public class Address implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    private String id;
     private String zipCode;
     private String country;
     private String city;
@@ -21,14 +19,6 @@ public class Address implements Serializable {
     private String notes;
 
     public Address() {
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getZipCode() {

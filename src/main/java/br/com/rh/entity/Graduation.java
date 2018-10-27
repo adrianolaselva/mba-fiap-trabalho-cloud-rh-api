@@ -10,8 +10,6 @@ public class Graduation implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    private String id;
     private GraduationType type;
     private String name;
     private String institution;
@@ -21,14 +19,6 @@ public class Graduation implements Serializable {
     private Integer completionMonth;
 
     public Graduation() {
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public GraduationType getType() {
